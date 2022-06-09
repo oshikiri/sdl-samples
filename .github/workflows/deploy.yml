@@ -1,0 +1,45 @@
+name: deploy
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+
+    - name: Install emscripten
+      run: |
+        cd /tmp
+
+        # https://emscripten.org/docs/getting_started/downloads.html
+        git clone https://github.com/emscripten-core/emsdk.git
+        cd emsdk
+        ./emsdk install latest
+        ./emsdk activate latest
+        source ./emsdk_env.sh
+
+        emcc --version
+
+    - name: Build all
+      run: |
+        source /tmp/emsdk/emsdk_env.sh
+        bash build.sh
+
+    - name: Push to gh-pages branch
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        git config user.name "deploy workflow"
+        git config user.email "oshikiri@users.noreply.github.com"
+        git checkout -b gh-pages
+        git add docs/* --force
+        git commit --message "Deploy docs/*"
+        git push --force origin gh-pages
