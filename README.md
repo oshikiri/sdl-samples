@@ -1,7 +1,7 @@
 sdl-samples
 =====
 
-[![Status of "Deploy to GitHub Pages" workflow](https://github.com/oshikiri/sdl-samples/workflows/Deploy%20to%20GitHub%20Pages/badge.svg)](https://github.com/oshikiri/sdl-samples/actions/workflows/deploy.yml)
+[![Status of "deploy" workflow](https://github.com/oshikiri/sdl-samples/workflows/deploy/badge.svg)](https://github.com/oshikiri/sdl-samples/actions/workflows/deploy.yml)
 
 
 http://oshikiri.org/projects/sdl-samples/
