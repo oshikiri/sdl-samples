@@ -1,7 +1,13 @@
-project=clock
+projects=(
+    clock
+    simple_pendulum
+)
 
-pushd ${project}/
-make
-mkdir ../docs/${project}/
-cp index.* ../docs/${project}/
-popd
+for project in "${projects[@]}" ; do
+    echo ">>> Building ${project}..."
+    pushd ${project}/
+    make
+    mkdir -p ../docs/${project}/
+    cp index.* ../docs/${project}/
+    popd
+done
