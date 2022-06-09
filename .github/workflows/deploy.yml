@@ -31,6 +31,8 @@ jobs:
 
     - name: Build clock
       run: |
+        source /tmp/emsdk/emsdk_env.sh
+
         pushd clock/
         make
         popd
