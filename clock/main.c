@@ -1,3 +1,5 @@
+// Document: http://oshikiri.org/projects/sdl-samples/#clock
+
 #include <stdbool.h>
 #include <stdio.h>
 

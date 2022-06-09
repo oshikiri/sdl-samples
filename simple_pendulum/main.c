@@ -1,3 +1,4 @@
+// Document: http://oshikiri.org/projects/sdl-samples/#simple-pendulum
 
 #include <stdbool.h>
 #include <stdio.h>
