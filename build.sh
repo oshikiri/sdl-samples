@@ -1,6 +1,5 @@
 projects=(
     clock
-    simple_pendulum
 )
 
 for project in "${projects[@]}" ; do
