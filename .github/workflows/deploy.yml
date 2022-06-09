@@ -35,13 +35,13 @@ jobs:
 
         pushd clock/
         make
+        cp index.* ../docs/
         popd
 
     - name: Push to gh-pages branch
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
-        git describe --tag
         git config user.name "deploy workflow"
         git config user.email "oshikiri@users.noreply.github.com"
         git checkout -b gh-pages
