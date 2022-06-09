@@ -27,6 +27,8 @@ jobs:
         ./emsdk activate latest
         source ./emsdk_env.sh
 
+        emcc --version
+
     - name: Build clock
       run: |
         pushd clock/
