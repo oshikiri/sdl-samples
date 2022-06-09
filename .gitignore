@@ -1,3 +1,6 @@
 .vscode/
 
 index.*
+
+docs/*
+!docs/index.html
