@@ -35,7 +35,8 @@ jobs:
 
         pushd clock/
         make
-        cp index.* ../docs/
+        mkdir ../docs/clock/
+        cp index.* ../docs/clock
         popd
 
     - name: Push to gh-pages branch
