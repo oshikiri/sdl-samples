@@ -1,5 +1,6 @@
 projects=(
     clock
+    particles
 )
 
 for project in "${projects[@]}" ; do
