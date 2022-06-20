@@ -6,7 +6,7 @@
 #include <SDL2/SDL.h>
 #include <emscripten.h>
 
-#include "sdl_helper.h"
+#include "../lib/sdl_extra.h"
 
 #define PI 3.141592
 #define GRAVITATIONAL_ACCELERATION 9.80665
