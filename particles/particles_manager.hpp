@@ -18,14 +18,16 @@ public:
 
     std::uniform_real_distribution<> xrand(0.0, 320.0), yrand(0.0, 160.0),
         vrand(-v_max, v_max);
+    std::normal_distribution<> rrand(5.0, 2.0);
 
     for (int i = 0; i < NUM_PARTICLES; i++) {
       double x0 = xrand(engine);
       double y0 = yrand(engine);
       double vx0 = vrand(engine);
       double vy0 = vrand(engine);
+      double r = abs(rrand(engine));
 
-      particles[i] = Particle();
+      particles[i] = Particle(r);
       particles[i].set(x0, y0, vx0, vy0);
     }
   }

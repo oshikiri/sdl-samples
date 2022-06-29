@@ -12,6 +12,10 @@ public:
   double x_max = 320;
   double y_max = 160;
 
+  Particle() {}
+
+  Particle(double r0) { radius = r0; }
+
   void set(double x0, double y0, double vx0, double vy0) {
     x = x0;
     y = y0;
