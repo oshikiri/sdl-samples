@@ -47,7 +47,6 @@ void poll_key_event() {
   }
 }
 
-double step_size = 0.1;
 double x1 = 2.0 * PI / 16.0; // theta
 double x2 = 0;               // dot theta
 
@@ -55,8 +54,8 @@ void update(double *x1_prev, double *x2_prev, double duration, double length) {
   double dx1 = *x2_prev;
   double dx2 = -GRAVITATIONAL_ACCELERATION * sin(*x1_prev) / length;
 
-  *x1_prev += step_size * dx1;
-  *x2_prev += step_size * dx2;
+  *x1_prev += duration * dx1;
+  *x2_prev += duration * dx2;
 }
 
 void render_pendulum(SDL_Renderer *renderer, double length, double theta) {
@@ -88,7 +87,7 @@ void show_animation() {
 
   double pendulum_length = 150.0;
   double duration = 1.0 * current_frame / FRAME_COUNT;
-  update(&x1, &x2, duration, pendulum_length);
+  update(&x1, &x2, ms, pendulum_length);
   // printf("duration=%f, x1=%f, x2=%f, theta=%f\n", duration, x1, x2, theta);
 
   SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
