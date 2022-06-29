@@ -23,10 +23,19 @@ public:
     x += vx * dt;
     y += vy * dt;
 
-    if (x - radius <= 0 || x + radius >= x_max) {
+    if (x - radius <= 0) {
+      x = radius;
+      vx = -vx;
+    } else if (x + radius >= x_max) {
+      x = x_max - radius;
       vx = -vx;
     }
-    if (y - radius <= 0 || y + radius >= y_max) {
+
+    if (y - radius <= 0) {
+      y = radius;
+      vy = -vy;
+    } else if (y + radius >= y_max) {
+      y = y_max - radius;
       vy = -vy;
     }
   };
