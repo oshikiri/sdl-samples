@@ -4,10 +4,6 @@ on:
   push:
     branches:
       - master
-      - deploy-using-gh-actions
-  pull_request:
-    branches:
-      - deploy-using-gh-actions
   workflow_dispatch:
 
 permissions:
