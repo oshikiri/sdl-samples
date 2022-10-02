@@ -54,7 +54,8 @@ public:
         double dx = pl.x - pr.x;
         double dy = pl.y - pr.y;
         double sum_of_radii = pl.radius + pr.radius;
-        if (dx * dx + dy * dy <= sum_of_radii * sum_of_radii) {
+        if (dx * dx + dy * dy <= sum_of_radii * sum_of_radii &&
+            will_intersect(pl, pr)) {
           // Swap velocity vectors
           double plvx = pl.vx;
           double plvy = pl.vy;
@@ -65,5 +66,21 @@ public:
         }
       }
     }
+  }
+
+  // https://qiita.com/zu_rin/items/e04fdec4e3dec6072104
+  bool will_intersect(Particle l, Particle r) {
+    double dt = 5;
+
+    double dax = l.vx * dt;
+    double day = l.vy * dt;
+
+    double r2x = r.x + r.vx * dt;
+    double r2y = r.y + r.vy * dt;
+
+    double s = dax * (r.y - l.y) - day * (r.x - l.x);
+    double t = dax * (r2y - l.y) - day * (r2x - l.x);
+
+    return s * t < 0;
   }
 };
